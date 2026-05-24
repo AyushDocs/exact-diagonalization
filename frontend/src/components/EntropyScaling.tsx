@@ -9,26 +9,26 @@ interface Props {
 
 export default function EntropyScaling({ data }: Props) {
   return (
-    <div className="bg-slate-800/60 rounded-xl p-6 border border-slate-700/50">
+    <div className="bg-white/5 rounded-xl p-6 border border-white/10">
       <h3 className="text-lg font-semibold text-white mb-4">Finite-Size Scaling</h3>
       <ResponsiveContainer width="100%" height={380}>
         <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#4a4d56" />
           <XAxis
             dataKey="Delta"
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
-            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#94a3b8' }}
+            tick={{ fill: '#8a8d96', fontSize: 12 }}
+            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#8a8d96' }}
           />
           <YAxis
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
-            label={{ value: 'Entanglement Entropy S', angle: -90, position: 'insideLeft', fill: '#94a3b8' }}
+            tick={{ fill: '#8a8d96', fontSize: 12 }}
+            label={{ value: 'Entanglement Entropy S', angle: -90, position: 'insideLeft', fill: '#8a8d96' }}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1e293b',
-              border: '1px solid #334155',
+              backgroundColor: '#2a2d36',
+              border: '1px solid #4a4d56',
               borderRadius: '8px',
-              color: '#e2e8f0',
+              color: '#efbcd5',
               fontSize: 12,
             }}
             formatter={(value, name) => {
@@ -38,14 +38,14 @@ export default function EntropyScaling({ data }: Props) {
             labelFormatter={(label) => `Δ = ${Number(label).toFixed(2)}`}
           />
           <Legend
-            wrapperStyle={{ fontSize: 11, color: '#94a3b8' }}
+            wrapperStyle={{ fontSize: 11, color: '#8a8d96' }}
           />
-          <Line type="monotone" dataKey="S_N8" name="N = 8" stroke="#06b6d4" strokeWidth={2} dot={false} />
-          <Line type="monotone" dataKey="S_N10" name="N = 10" stroke="#22c55e" strokeWidth={2} dot={false} />
-          <Line type="monotone" dataKey="S_N12" name="N = 12" stroke="#eab308" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="S_N8" name="N = 8" stroke="#3185fc" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="S_N10" name="N = 10" stroke="#e84855" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="S_N12" name="N = 12" stroke="#f9dc5c" strokeWidth={2} dot={false} />
         </LineChart>
       </ResponsiveContainer>
-      <div className="mt-4 text-xs text-slate-500 text-center">
+      <div className="mt-4 text-xs text-pastel-petal/50 text-center">
         Hilbert space dimensions: dim(N=8) = 70, dim(N=10) = 252, dim(N=12) = 924 (Sz=0 sector).
         The entropy peak sharpens as N increases.
       </div>

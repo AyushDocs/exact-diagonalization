@@ -1,9 +1,33 @@
-node_modules/
-.next/
-*.pyc
+# Python
 __pycache__/
-.DS_Store
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
 *.egg-info/
 dist/
 build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Next.js & Frontend
+node_modules/
+.next/
+out/
 .vercel/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS
+.DS_Store
+Thumbs.db

@@ -70,8 +70,8 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-          <span className="text-sm text-slate-500">Diagonalizing Hamiltonians...</span>
+          <div className="w-8 h-8 border-2 border-azure-blue border-t-transparent rounded-full animate-spin" />
+          <span className="text-sm text-pastel-petal/50">Diagonalizing Hamiltonians...</span>
         </div>
       </div>
     );
@@ -80,7 +80,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gunmetal/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <span className="text-sm font-semibold text-white tracking-tight">
             Exact Diagonalization
@@ -92,8 +92,8 @@ export default function Home() {
                 href={`#${item.id}`}
                 className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   activeSection === item.id
-                    ? 'bg-cyan-500/20 text-cyan-300'
-                    : 'text-slate-500 hover:text-slate-300 hover:bg-slate-800/50'
+                    ? 'bg-azure-blue/20 text-azure-blue'
+                    : 'text-pastel-petal/50 hover:text-pastel-petal hover:bg-white/5'
                 }`}
               >
                 {item.label}
@@ -110,17 +110,17 @@ export default function Home() {
             <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
               1D Heisenberg Spin Chain
             </h1>
-            <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-pastel-petal/60 max-w-2xl mx-auto leading-relaxed">
               Exact diagonalization of a many-body quantum Hamiltonian. Explore energy levels,
               entanglement entropy, and a quantum phase transition — all in your browser.
             </p>
-            <div className="flex items-center justify-center gap-4 mt-6 text-xs text-slate-600">
+            <div className="flex items-center justify-center gap-4 mt-6 text-xs text-pastel-petal/40">
               <span>10 spins</span>
-              <span className="w-1 h-1 rounded-full bg-slate-600" />
+              <span className="w-1 h-1 rounded-full bg-pastel-petal/30" />
               <span>Sz=0 sector</span>
-              <span className="w-1 h-1 rounded-full bg-slate-600" />
+              <span className="w-1 h-1 rounded-full bg-pastel-petal/30" />
               <span>252 × 252 matrix</span>
-              <span className="w-1 h-1 rounded-full bg-slate-600" />
+              <span className="w-1 h-1 rounded-full bg-pastel-petal/30" />
               <span>Lanczos solver</span>
             </div>
           </div>
@@ -133,10 +133,10 @@ export default function Home() {
               { label: 'Lowest States', value: '6 eigenvalues', sub: 'via sparse Lanczos' },
               { label: 'Parameters', value: 'J = 1.0', sub: 'Δ from 0.2 → 2.0' },
             ].map((stat) => (
-              <div key={stat.label} className="bg-slate-800/40 rounded-xl p-4 border border-slate-700/30 text-center">
+              <div key={stat.label} className="bg-white/5 rounded-xl p-4 border border-white/10 text-center">
                 <div className="text-lg font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-cyan-400/80 mt-0.5">{stat.label}</div>
-                <div className="text-xs text-slate-600 mt-0.5">{stat.sub}</div>
+                <div className="text-xs text-azure-blue/80 mt-0.5">{stat.label}</div>
+                <div className="text-xs text-pastel-petal/40 mt-0.5">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -146,7 +146,7 @@ export default function Home() {
         <section id="chain" className="scroll-mt-20">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-white">Spin Chain Visualizer</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-pastel-petal/50 mt-1">
               Click through Δ values to see how the ground state spin configuration changes.
               At Δ=1 (critical point), quantum fluctuations are strongest.
             </p>
@@ -158,7 +158,7 @@ export default function Home() {
         <section id="spectrum" className="scroll-mt-20">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-white">Energy Spectrum</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-pastel-petal/50 mt-1">
               The lowest 6 energy eigenvalues as a function of the anisotropy parameter Δ.
               The gap between E₀ and E₁ is a key observable.
             </p>
@@ -166,9 +166,9 @@ export default function Home() {
           <EnergySpectrum data={spectrum} />
 
           {/* Entanglement spectrum inset */}
-          <div className="mt-4 bg-slate-800/40 rounded-xl p-4 border border-slate-700/30">
+          <div className="mt-4 bg-white/5 rounded-xl p-4 border border-white/10">
             <h4 className="text-sm font-medium text-white mb-2">Entanglement Spectrum at Δ = 1</h4>
-            <p className="text-xs text-slate-500 mb-3">
+            <p className="text-xs text-pastel-petal/50 mb-3">
               The 20 largest Schmidt values λᵢ² of the ground state (half-chain cut).
               The slow decay signals criticality.
             </p>
@@ -176,7 +176,7 @@ export default function Home() {
               {entSpec.slice(0, 20).map((val, i) => (
                 <div
                   key={i}
-                  className="flex-1 bg-gradient-to-t from-cyan-500 to-cyan-400 rounded-t-sm transition-all hover:opacity-80"
+                  className="flex-1 bg-azure-blue rounded-t-sm transition-all hover:opacity-80"
                   style={{ height: `${Math.max(3, val / Math.max(...entSpec) * 100)}%` }}
                   title={`λ² = ${val.toExponential(2)}`}
                 />
@@ -189,7 +189,7 @@ export default function Home() {
         <section id="phase" className="scroll-mt-20">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-white">Quantum Phase Transition</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-pastel-petal/50 mt-1">
               Entanglement entropy peaks at the critical point Δ=1, while the energy gap
               (within the Sz=0 sector) signals the transition to the gapped Ising phase.
             </p>
@@ -201,7 +201,7 @@ export default function Home() {
         <section id="scaling" className="scroll-mt-20">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-white">Finite-Size Scaling</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-pastel-petal/50 mt-1">
               Comparing entanglement entropy for N = 8, 10, and 12. The peak at Δ=1 sharpens
               as system size increases — converging to the thermodynamic phase transition.
             </p>
@@ -213,7 +213,7 @@ export default function Home() {
         <section id="explanation" className="scroll-mt-20">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-white">How It Works</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-pastel-petal/50 mt-1">
               Progressive explanations from first principles to state-of-the-art methods.
             </p>
           </div>
@@ -221,11 +221,11 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-slate-800/50 pt-8 text-center">
-          <p className="text-xs text-slate-600">
+        <footer className="border-t border-white/10 pt-8 text-center">
+          <p className="text-xs text-pastel-petal/40">
             Built with NumPy · SciPy Sparse · Lanczos Eigensolver · Matplotlib · Next.js · Recharts · Tailwind CSS
           </p>
-          <p className="text-xs text-slate-700 mt-1">
+          <p className="text-xs text-pastel-petal/30 mt-1">
             Data pre-computed via Python. Visualization rendered client-side.
           </p>
         </footer>

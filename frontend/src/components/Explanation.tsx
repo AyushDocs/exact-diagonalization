@@ -125,8 +125,8 @@ export default function Explanation() {
             key={section.id}
             className={`rounded-xl border transition-all ${
               isOpen
-                ? 'bg-slate-800/80 border-slate-600/50'
-                : 'bg-slate-800/40 border-slate-700/30 hover:border-slate-600/40'
+                ? 'bg-white/10 border-white/20'
+                : 'bg-white/5 border-white/10 hover:border-white/20'
             }`}
           >
             <button
@@ -135,7 +135,7 @@ export default function Explanation() {
             >
               <span className="text-base font-semibold text-white">{section.label}</span>
               <svg
-                className={`w-5 h-5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-pastel-petal/50 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ export default function Explanation() {
                 {section.content.map((item, i) => (
                   <div key={i} className="space-y-1.5">
                     <h4 className="text-sm font-medium text-white">{item.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed whitespace-pre-line">{item.body}</p>
+                    <p className="text-sm text-pastel-petal/60 leading-relaxed whitespace-pre-line">{item.body}</p>
                   </div>
                 ))}
               </div>

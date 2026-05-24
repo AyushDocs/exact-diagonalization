@@ -7,30 +7,30 @@ interface Props {
   data: SpectrumPoint[];
 }
 
-const COLORS = ['#06b6d4', '#22c55e', '#eab308', '#f97316', '#ef4444', '#a855f7'];
+const COLORS = ['#3185fc', '#e84855', '#f9dc5c', '#efbcd5', '#3185fc', '#e84855'];
 
 export default function EnergySpectrum({ data }: Props) {
   return (
-    <div className="bg-slate-800/60 rounded-xl p-6 border border-slate-700/50">
+    <div className="bg-white/5 rounded-xl p-6 border border-white/10">
       <h3 className="text-lg font-semibold text-white mb-4">Energy Spectrum vs Anisotropy</h3>
       <ResponsiveContainer width="100%" height={380}>
         <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#4a4d56" />
           <XAxis
             dataKey="Delta"
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
-            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#94a3b8' }}
+            tick={{ fill: '#8a8d96', fontSize: 12 }}
+            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#8a8d96' }}
           />
           <YAxis
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
-            label={{ value: 'Energy', angle: -90, position: 'insideLeft', fill: '#94a3b8' }}
+            tick={{ fill: '#8a8d96', fontSize: 12 }}
+            label={{ value: 'Energy', angle: -90, position: 'insideLeft', fill: '#8a8d96' }}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1e293b',
-              border: '1px solid #334155',
+              backgroundColor: '#2a2d36',
+              border: '1px solid #4a4d56',
               borderRadius: '8px',
-              color: '#e2e8f0',
+              color: '#efbcd5',
               fontSize: 12,
             }}
             formatter={(value, name) => {
@@ -40,7 +40,7 @@ export default function EnergySpectrum({ data }: Props) {
             labelFormatter={(label) => `Δ = ${Number(label).toFixed(2)}`}
           />
           <Legend
-            wrapperStyle={{ fontSize: 11, color: '#94a3b8' }}
+            wrapperStyle={{ fontSize: 11, color: '#8a8d96' }}
           />
           {Array.from({ length: 6 }, (_, i) => (
             <Line
@@ -56,7 +56,7 @@ export default function EnergySpectrum({ data }: Props) {
           ))}
         </LineChart>
       </ResponsiveContainer>
-      <p className="text-xs text-slate-500 mt-3 text-center">
+      <p className="text-xs text-pastel-petal/50 mt-3 text-center">
         N = 10 spins, periodic boundary conditions, J = 1.0. The gap E₁ − E₀ closes near Δ = 1.
       </p>
     </div>
