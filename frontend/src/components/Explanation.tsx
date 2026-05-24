@@ -135,7 +135,7 @@ export default function Explanation() {
             >
               <span className="text-base font-semibold text-white">{section.label}</span>
               <svg
-                className={`w-5 h-5 text-pastel-petal/50 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-white/50 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -148,8 +148,8 @@ export default function Explanation() {
               <div className="px-4 pb-4 space-y-4">
                 {section.content.map((item, i) => (
                   <div key={i} className="space-y-1.5">
-                    <h4 className="text-sm font-medium text-white">{item.title}</h4>
-                    <p className="text-sm text-pastel-petal/60 leading-relaxed whitespace-pre-line">{item.body}</p>
+                    <h4 className="text-sm font-semibold text-white">{item.title}</h4>
+                    <p className="text-sm text-white/70 leading-relaxed whitespace-pre-line">{item.body}</p>
                   </div>
                 ))}
               </div>

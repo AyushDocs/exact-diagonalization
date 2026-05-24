@@ -62,15 +62,15 @@ export default function SpinChain({ snapshots }: Props) {
       </div>
 
       <div className="flex items-center gap-3 mb-3 flex-wrap">
-        <span className="text-sm text-pastel-petal/60">Δ:</span>
+        <span className="text-sm text-white/50">Δ:</span>
         {snapshots.map((s, i) => (
           <button
             key={s.Delta}
             onClick={() => { setSnapIdx(i); setConfigIdx(0); setAutoPlay(false); }}
             className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
               i === snapIdx
-                ? 'bg-azure-blue/30 text-azure-blue ring-1 ring-azure-blue/50'
-                : 'bg-white/5 text-pastel-petal/60 hover:text-pastel-petal hover:bg-white/10'
+                ? 'bg-azure-blue/40 text-white ring-1 ring-azure-blue'
+                : 'bg-white/5 text-white/60 hover:text-white hover:bg-white/10'
             }`}
             style={i === snapIdx ? { borderColor: COLORS[i], borderWidth: 1 } : {}}
           >
@@ -80,22 +80,22 @@ export default function SpinChain({ snapshots }: Props) {
       </div>
 
       <div className="flex items-center gap-2 mb-4 flex-wrap">
-        <span className="text-sm text-pastel-petal/60">Config:</span>
+        <span className="text-sm text-white/50">Config:</span>
         {snapshot?.top_configs.map((_, i) => (
           <button
             key={i}
             onClick={() => setConfigIdx(i)}
             className={`w-7 h-7 rounded-full text-xs font-medium transition-all ${
               i === configIdx
-                ? 'bg-azure-blue/40 text-white ring-1 ring-azure-blue'
-                : 'bg-white/5 text-pastel-petal/50 hover:text-pastel-petal'
+                ? 'bg-azure-blue/50 text-white ring-1 ring-azure-blue'
+                : 'bg-white/5 text-white/50 hover:text-white'
             }`}
           >
             {i + 1}
           </button>
         ))}
         {config && (
-          <span className="text-xs text-pastel-petal/50 ml-2">
+          <span className="text-xs text-white/60 ml-2">
             P = {(config.prob * 100).toFixed(1)}%
           </span>
         )}
@@ -175,8 +175,8 @@ export default function SpinChain({ snapshots }: Props) {
                 : 'bg-white/5'
             }`}
           >
-            <div className="text-pastel-petal/60 mb-1">Δ = {s.Delta.toFixed(1)}</div>
-            <div className="text-pastel-petal/50">
+            <div className="text-white/70 mb-1 font-semibold">Δ = {s.Delta.toFixed(1)}</div>
+            <div className="text-white/50">
               E₀ = {s.E0.toFixed(2)}
             </div>
           </div>

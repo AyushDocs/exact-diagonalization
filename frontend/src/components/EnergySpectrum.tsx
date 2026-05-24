@@ -14,12 +14,13 @@ export default function EnergySpectrum({ data }: Props) {
     <div className="bg-white/5 rounded-xl p-6 border border-white/10">
       <h3 className="text-lg font-semibold text-white mb-4">Energy Spectrum vs Anisotropy</h3>
       <ResponsiveContainer width="100%" height={380}>
-        <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
+        <LineChart data={data} margin={{ top: 10, right: 20, bottom: 25, left: 10 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#4a4d56" />
           <XAxis
             dataKey="Delta"
             tick={{ fill: '#8a8d96', fontSize: 12 }}
-            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#8a8d96' }}
+            height={45}
+            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: 0, fill: '#8a8d96' }}
           />
           <YAxis
             tick={{ fill: '#8a8d96', fontSize: 12 }}
@@ -40,7 +41,9 @@ export default function EnergySpectrum({ data }: Props) {
             labelFormatter={(label) => `Δ = ${Number(label).toFixed(2)}`}
           />
           <Legend
-            wrapperStyle={{ fontSize: 11, color: '#8a8d96' }}
+            verticalAlign="top"
+            height={36}
+            wrapperStyle={{ fontSize: 11, color: '#8a8d96', paddingBottom: '10px' }}
           />
           {Array.from({ length: 6 }, (_, i) => (
             <Line
@@ -56,7 +59,7 @@ export default function EnergySpectrum({ data }: Props) {
           ))}
         </LineChart>
       </ResponsiveContainer>
-      <p className="text-xs text-pastel-petal/50 mt-3 text-center">
+      <p className="text-xs text-white/50 mt-3 text-center">
         N = 10 spins, periodic boundary conditions, J = 1.0. The gap E₁ − E₀ closes near Δ = 1.
       </p>
     </div>

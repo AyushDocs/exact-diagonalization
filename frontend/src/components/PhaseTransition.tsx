@@ -14,12 +14,13 @@ export default function PhaseTransition({ data }: Props) {
     <div className="bg-white/5 rounded-xl p-6 border border-white/10">
       <h3 className="text-lg font-semibold text-white mb-4">Quantum Phase Transition</h3>
       <ResponsiveContainer width="100%" height={380}>
-        <ComposedChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
+        <ComposedChart data={data} margin={{ top: 10, right: 20, bottom: 25, left: 10 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#4a4d56" />
           <XAxis
             dataKey="Delta"
             tick={{ fill: '#8a8d96', fontSize: 12 }}
-            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: -5, fill: '#8a8d96' }}
+            height={45}
+            label={{ value: 'Δ (anisotropy)', position: 'insideBottom', offset: 0, fill: '#8a8d96' }}
           />
           <YAxis
             yAxisId="entropy"
@@ -50,7 +51,9 @@ export default function PhaseTransition({ data }: Props) {
             labelFormatter={(label) => `Δ = ${Number(label).toFixed(2)}`}
           />
           <Legend
-            wrapperStyle={{ fontSize: 11, color: '#8a8d96' }}
+            verticalAlign="top"
+            height={36}
+            wrapperStyle={{ fontSize: 11, color: '#8a8d96', paddingBottom: '10px' }}
           />
           <Line
             yAxisId="entropy"
@@ -75,16 +78,16 @@ export default function PhaseTransition({ data }: Props) {
       </ResponsiveContainer>
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
         <div className="bg-white/5 rounded-lg p-3 border-l-2 border-azure-blue">
-          <div className="text-azure-blue font-medium mb-1">XY Phase (Δ &lt; 1)</div>
-          <div className="text-pastel-petal/60 text-xs">Gapless, quasi-long-range order. Entropy is finite.</div>
+          <div className="text-azure-blue font-semibold mb-1">XY Phase (Δ &lt; 1)</div>
+          <div className="text-white/60 text-xs">Gapless, quasi-long-range order. Entropy is finite.</div>
         </div>
         <div className="bg-white/5 rounded-lg p-3 border-l-2 border-royal-gold">
-          <div className="text-royal-gold font-medium mb-1">Critical Point (Δ = 1)</div>
-          <div className="text-pastel-petal/60 text-xs">XXX point — SU(2) symmetric. Entropy peaks here.</div>
+          <div className="text-royal-gold font-semibold mb-1">Critical Point (Δ = 1)</div>
+          <div className="text-white/60 text-xs">XXX point — SU(2) symmetric. Entropy peaks here.</div>
         </div>
         <div className="bg-white/5 rounded-lg p-3 border-l-2 border-watermelon">
-          <div className="text-watermelon font-medium mb-1">Ising Phase (Δ &gt; 1)</div>
-          <div className="text-pastel-petal/60 text-xs">Gapped, Néel ordered. Entropy decreases.</div>
+          <div className="text-watermelon font-semibold mb-1">Ising Phase (Δ &gt; 1)</div>
+          <div className="text-white/60 text-xs">Gapped, Néel ordered. Entropy decreases.</div>
         </div>
       </div>
     </div>
